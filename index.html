@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SONILINE - Car Audio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="theme-switch" id="theme-toggle"><span id="theme-icon">🌙</span></div>
+
+    <header class="main-header">
+        <img src="logo-principal.png" alt="SONILINE" class="main-logo">
+    </header>
+
+    <nav class="categories-nav" id="nav-categorias"></nav>
+
+    <main class="container">
+        <h2 id="category-title">CATALOGO COMPLETO</h2> 
+        
+        <div class="productos-grid" id="productos-grid"></div>
+    </main>
+
+    <a href="https://wa.me/584247681211?text=Hola%20Soniline%20necesito%20informacion%20sobre%20un%20producto" class="whatsapp-float" target="_blank">
+        <span class="wa-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA"></span>
+    </a>
+
+    <div class="cart-float" onclick="abrirModalCarrito()">
+        <span>🛒</span>
+        <span id="cart-count">0</span>
+    </div>
+
+    <div id="modal-carrito" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="cerrarModal()">✕</button>
+            <h3>Tu Carrito</h3>
+            <div id="lista-carrito"></div>
+            <p class="total-p">TOTAL: $ <span id="precio-total">0</span></p>
+            <button class="btn-enviar-total" onclick="enviarWhatsApp()">ENVIAR A WHATSAPP</button>
+        </div>
+    </div>
+
+    <div id="modal-confirmacion" class="modal">
+        <div class="modal-content" style="text-align:center">
+            <div style="font-size:40px; color:#25d366">✔</div>
+            <p><strong id="detalle-confirmacion"></strong> agregado con exito.</p>
+            <button class="btn-add" onclick="cerrarModal()">ACEPTAR</button>
+        </div>
+    </div>
+
+    <script src="categorias.js"></script>
+    <script src="productos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
