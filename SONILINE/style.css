@@ -1,0 +1,141 @@
+:root {
+    --bg-fondo: #050505;
+    --bg-tarjeta: #121212;
+    --bg-nav: #0a0a0a;
+    --texto-principal: #ffffff;
+    --texto-secundario: #aaaaaa;
+    --azul-soniline: #1d4db5;
+    --borde: #222222;
+    --whatsapp-color: #25d366;
+}
+
+[data-theme="light"] {
+    --bg-fondo: #f0f2f5;
+    --bg-tarjeta: #ffffff;
+    --bg-nav: #ffffff;
+    --texto-principal: #1a1a1a;
+    --texto-secundario: #555555;
+    --borde: #dddddd;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+    margin: 0; font-family: sans-serif;
+    background-color: var(--bg-fondo); color: var(--texto-principal);
+    transition: background 0.3s; cursor: default !important; user-select: none;
+}
+
+button, a { cursor: pointer !important; }
+
+.main-header { text-align: center; padding: 20px; border-bottom: 2px solid var(--azul-soniline); }
+.main-logo { max-width: 250px; width: 70%; }
+
+.categories-nav {
+    display: flex; overflow-x: auto; background: var(--bg-nav);
+    padding: 12px; gap: 8px; position: sticky; top: 0; z-index: 900;
+    justify-content: center; border-bottom: 1px solid var(--borde);
+}
+
+.cat-btn {
+    background: transparent; color: var(--texto-secundario);
+    border: 1px solid var(--borde); padding: 7px 18px; border-radius: 20px;
+    font-weight: bold; white-space: nowrap; transition: 0.2s; font-size: 0.85rem;
+}
+
+.cat-btn.active { background: var(--azul-soniline); color: white; border-color: var(--azul-soniline); }
+
+.container { padding: 20px; max-width: 1200px; margin: auto; }
+.productos-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 200px));
+    gap: 15px; justify-content: center;
+}
+
+.card {
+    background: var(--bg-tarjeta); border-radius: 12px; padding: 12px;
+    border: 1px solid var(--borde); text-align: center;
+}
+.card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; }
+.card h3 { font-size: 0.9rem; margin: 10px 0; height: 35px; overflow: hidden; }
+.price { color: var(--azul-soniline); font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; display: block; }
+.btn-add {
+    background: var(--azul-soniline); color: white; border: none;
+    width: 100%; padding: 10px; border-radius: 6px; font-weight: bold;
+}
+
+.cart-float, .whatsapp-float {
+    position: fixed; width: 55px; height: 55px; border-radius: 50% !important;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 1000;
+}
+
+.cart-float { bottom: 20px; right: 20px; background: var(--azul-soniline); color: white; }
+.whatsapp-float { bottom: 20px; left: 20px; background: var(--whatsapp-color); }
+.wa-icon img { width: 28px; height: 28px; }
+
+#cart-count {
+    position: absolute; top: 2px; right: 2px; background: #ff3b30;
+    width: 18px; height: 18px; border-radius: 50%; font-size: 11px;
+    display: flex; align-items: center; justify-content: center; font-weight: bold;
+}
+
+.theme-switch {
+    position: fixed; top: 15px; right: 15px; width: 40px; height: 40px;
+    border-radius: 50%; background: var(--bg-tarjeta); border: 1px solid var(--borde);
+    display: flex; align-items: center; justify-content: center; z-index: 1100;
+}
+
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); }
+.modal-content { background: var(--bg-tarjeta); margin: 15% auto; padding: 20px; width: 90%; max-width: 400px; border-radius: 15px; position: relative; border: 1px solid var(--borde); }
+
+.item-carrito { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--borde); }
+.item-carrito img { width: 45px; height: 45px; border-radius: 5px; object-fit: cover; }
+.btn-eliminar-item { background: rgba(255, 59, 48, 0.1); color: #ff3b30; border: none; width: 30px; height: 30px; border-radius: 5px; font-weight: bold; margin-left: auto; }
+.btn-enviar-total { background: var(--whatsapp-color); color: white; border: none; width: 100%; padding: 14px; border-radius: 10px; font-weight: bold; margin-top: 15px; }
+.total-p { font-weight: bold; font-size: 1.1rem; margin-top: 15px; }
+.close-modal { position: absolute; right: 15px; top: 15px; background: none; border: none; color: var(--texto-secundario); font-size: 1.2rem; }
+
+@media (max-width: 600px) { .categories-nav { justify-content: flex-start; } }
+
+/* =========================================
+   8. AJUSTE PARA MÓVILES (2 COLUMNAS)
+   ========================================= */
+@media (max-width: 600px) {
+    /* Forzamos 2 columnas exactas en pantallas pequeñas */
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; /* Reducimos un poco el espacio para que quepan mejor */
+        padding: 5px;
+    }
+
+    /* Ajustamos el tamaño de la tarjeta para que no se vea amontonada */
+    .card {
+        padding: 10px;
+    }
+
+    .card h3 {
+        font-size: 0.8rem; /* Letra un poco más pequeña para el título */
+        height: 32px;
+    }
+
+    .price {
+        font-size: 1rem;
+    }
+
+    .btn-add {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}
+/* =========================================
+   CENTRAR TÍTULO DE CATEGORÍA
+   ========================================= */
+#category-title {
+    text-align: center; /* Esto lo centra horizontalmente */
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase; /* Lo pone en mayúsculas para que resalte más */
+    letter-spacing: 1.5px; /* Le da un toque más elegante */
+    width: 100%; /* Asegura que ocupe todo el ancho para poder centrarse */
+    color: var(--texto-principal);
+}
