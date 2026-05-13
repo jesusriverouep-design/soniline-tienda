@@ -1,49 +1,22 @@
 const productos = [
-    {
+   {
         id: 1,
-        nombre: "Radio Android 9 Pulgadas",
-        precio: 150,
-        categoria: "radios",
-       imagenes: [
-            "img/bajo-1.jpg", 
-            "img/bajo-2.jpg", 
-            "img/bajo-3.jpg",
-            "img/bajo-caja.jpg",
-            "img/bajo-trasero.jpg"
-        ], 
-        descripcion: "CarPlay, Android Auto, 2GB RAM"
-    },
-    {
-        id: 2,
-        nombre: "Subwoofer Pioneer 12'",
-        precio: 110,
-        categoria: "bajos",
-        imagenes: [
-            "img/pioneer-12.jpg"
-        ],
-        descripcion: "Doble bobina, 1200W"
-    },
-    {
-        id: 3,
-        nombre: "Combo Explosivo Soniline",
-        precio: 299,
-        categoria: "combos",
-        imagenes: [
-            "img/combos-1.jpg",
-            "img/combos-2.jpg",
-            "img/combos-3.jpg"
-        ],
-        descripcion: "Bajo + Planta + Instalación"
-    },
-    {
-        id: 4,
-        nombre: "taramps",
-        precio: 100,
-        categoria: "amplificadores",
-        imagenes: [
-            "img/taramps.jpg"
-        ],
-        descripcion: "Potente bajo"
+        modelo: "PS-S6",
+        marca: "Power Su",
+        nombre: "Medio Rango PowerSuPro 6.5\"",
+        precio: 45,
+        //precioAnterior: 45,
+        status: "popular",
+        stock: true,
+        categoria: "MEDIOS 6.5",
+        imagenes: ["img/PS-S6-1.png", "img/PS-S6-2.png", "img/PS-S6-3.png"],
+        descripcion: "Altavoces de gama media de alta eficiencia.",
+        specs: {
+            "Potencia Max": "400W",
+            "Potencia RMS": "200W",
+            "Impedancia": "4 Ohm",
+            "Sensibilidad": "95dB",
+            "Frecuencia": "120Hz - 10kHz"
+        }
     }
-    // ... agrega los demás igual
 ];
